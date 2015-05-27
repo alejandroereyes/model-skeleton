@@ -1,12 +1,12 @@
 Using Active Record
 -------------------
 
-1) There are 50 users
+##1) There are 50 users
 
   [5] pry(main)> User.count
    => 50
 
-2) 5 most expensive items
+##2) 5 most expensive items
   - Small Cotton Gloves $9984
   - Small Wooden Computer $9859
   - Awesome Granite Pants $9790
@@ -15,11 +15,11 @@ Using Active Record
 
   [16] pry(main)> Item.order(price: :desc).limit(5)
 
-3) Cheapest book is Ergonomic Granite Chair $1496
+##3) Cheapest book is Ergonomic Granite Chair $1496
 
    [17] pry(main)> Item.where(category: 'Books').order(price: :asc).limit(1)
 
-4) Corrine Little has lives at 6439 Zetta hills
+##4) Corrine Little has lives at 6439 Zetta hills
 
   [47] pry(main)> User.joins("JOIN addresses WHERE addresses.street = '6439 Zetta Hills' AND users.id = addresses.user_id")
 
@@ -27,50 +27,22 @@ Using Active Record
 
   [49] pry(main)> Address.where(user_id: 40)
 
-5) Virginie's addresses have been updated
+##5) Virginie's addresses have been updated
 
   [50] pry(main)> User.where(first_name: "Virginie")
   [56] pry(main)> Address.where(user_id: 39).update_all(city: "New York", zip: 10108)
 
-6) It would cost $7383 to buy one of each tool
+##6) It would cost $7383 to buy one of each tool
 
   [58] pry(main)> Item.where(category: 'Tools').sum(:price)
 
-7) 2125 items were sold
+##7) 2125 items were sold
 
   [60] pry(main)> Order.sum(:quantity)
 
-8) Total spent on books $420566
+##8) Total spent on books $420566
 
   book_orders = Item.joins('JOIN orders ON orders.item_id = items.id').where(category: 'Books')
   [95] pry(main)> book_orders.sum('price * quantity')
 
 
-This folder structure should be suitable for starting a project that uses a database:
-
-* Fork this repo
-* Clone this repo
-* `rake generate:migration <NAME>` to create a migration (Don't include the `<` `>` in your name, it should also start with a capital)
-* `rake db:migrate` to run the migration and update the database
-* Create models in lib that subclass `ActiveRecord::Base`
-* ... ?
-* Profit
-
-
-## Rundown
-
-```
-.
-├── Gemfile             # Details which gems are required by the project
-├── README.md           # This file
-├── Rakefile            # Defines `rake generate:migration` and `db:migrate`
-├── config
-│   └── database.yml    # Defines the database config (e.g. name of file)
-├── console.rb          # `ruby console.rb` starts `pry` with models loaded
-├── db
-│   ├── dev.sqlite3     # Default location of the database file
-│   ├── migrate         # Folder containing generated migrations
-│   └── setup.rb        # `require`ing this file sets up the db connection
-└── lib                 # Your ruby code (models, etc.) should go here
-    └── all.rb          # Require this file to auto-require _all_ `.rb` files in `lib`
-```
