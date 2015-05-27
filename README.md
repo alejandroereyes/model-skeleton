@@ -1,4 +1,4 @@
-Using Active Record
+#Using Active Record
 -------------------
 
 ##1) There are 50 users
