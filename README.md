@@ -99,6 +99,21 @@
 
       [2] pry(main)> Review.create(user_id: 51, item_id: 33, rating: 5, comment: "Great for skydiving!")
 
+##16) Added more reviews to reviews table
+
+      [4] pry(main)> Review.create(user_id: 39, item_id: 2, rating: 3, comment: 'pretty comfy')
+
+      [6] pry(main)> Review.create(user_id: 40, item_id: 14, rating: 1, comment: 'looks greate but DO NOT PLUG IN!')
+
+      Code to look at all reviews
+
+      [8] pry(main)> Review.select('*')
+
+      Code to look at review based on rating
+
+      [9] pry(main)> Review.where(rating: 1)
+
+
 
 
 
