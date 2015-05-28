@@ -68,6 +68,16 @@
       id = 65, value = 525240
       [129] pry(main)> Item.where(id: 65)
 
+##12) User who spent the most is Hassan Runte
+
+      oui_user_id = Order.joins('JOIN users ON users.id = orders.user_id').joins('JOIN items ON items.id = orders.item_id').group(:user_id)
+      results = oui_user_id.sum('quantity * price')
+      results.max_by{ |k, v|, v }
+      id = 19, value 639386
+      [143] pry(main)> User.where(id: 19)
+
+
+
 
 
 
