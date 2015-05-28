@@ -34,7 +34,7 @@
 
 ##6) It would cost $7383 to buy one of each tool
 
-  [ 58] pry(main)> Item.where(category: 'Tools').sum(:price)
+    [58] pry(main)> Item.where(category: 'Tools').sum(:price)
 
 ##7) 2125 items were sold
 
@@ -47,9 +47,9 @@
 
 ##9) Added a user and order for new user
 
-  [96] pry(main)> User.create(first_name: 'Alex', last_name: 'Reyes', email: 'here@tiy.com')
+    [96] pry(main)> User.create(first_name: 'Alex', last_name: 'Reyes', email: 'here@tiy.com')
 
-  [98] pry(main)> Order.create(user_id: 51, item_id: 33, quantity: 4, created_at: '')
+    [98] pry(main)> Order.create(user_id: 51, item_id: 33, quantity: 4, created_at: '')
 
 
 
