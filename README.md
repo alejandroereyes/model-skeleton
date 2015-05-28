@@ -76,6 +76,22 @@
       id = 19, value 639386
       [143] pry(main)> User.where(id: 19)
 
+##13) Top 3 grossing categories
+      - Music, Sports & Clothing, $525240
+      - Beauty, Toys & Sports, $449496
+      - Sports, $448410
+
+      oi_category = Order.joins('JOIN items ON items.id = orders.item_id').group(:category)
+      results = oi_category.sum('quantity * price')
+      Below x3
+      results.max_by{ |k, v| v }
+      results.delete(key returned from above)
+
+
+
+
+
+
 
 
 
