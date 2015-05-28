@@ -89,15 +89,15 @@
 
 ##14) Created a new table named reviews
 
-      ```▶ rake db:migrate
+      ▶ rake db:migrate
       == 20150527221706 CreateReviews: migrating ====================================
       -- create_table(:reviews)
       -> 0.0016s
-      == 20150527221706 CreateReviews: migrated (0.0029s) ===========================```
+      == 20150527221706 CreateReviews: migrated (0.0029s) ===========================
 
 ##15) Created a review for new reviews table
 
-      ```[2] pry(main)> Review.create(user_id: 51, item_id: 33, rating: 5, comment: "Great for skydiving!")```
+      [2] pry(main)> Review.create(user_id: 51, item_id: 33, rating: 5, comment: "Great for skydiving!")
 
 
 
