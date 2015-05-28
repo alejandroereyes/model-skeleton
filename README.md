@@ -51,6 +51,25 @@
 
     [98] pry(main)> Order.create(user_id: 51, item_id: 33, quantity: 4, created_at: '')
 
+##10) Item(s) ordered the most Ergonomic Concrete Gloves
+
+      group all items by item ids
+      [104] pry(main)> OI_group_item_id = Order.joins('JOIN items ON items.id = Orders.item_id').group(:item_id)
+      [105] pry(main)> results = OI_group_item_id.count
+      [106] pry(main)> results.max_by{ |k, v| v}
+      id = 10, value = 9
+      [130] pry(main)> Item.where(id: 10)
+
+
+##11) Highest grossing item is the Incredible Granite Car $525240
+
+      results = OI_group_item_id.sum('price * quantity')
+      results.max_by{ |k, v| v }
+      id = 65, value = 525240
+      [129] pry(main)> Item.where(id: 65)
+
+
+
 
 
 
